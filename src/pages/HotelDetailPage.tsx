@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { Star, MapPin, Users, Coffee, Wifi, Pool, Parking, Restaurant, Calendar } from 'lucide-react';
+import { Star, MapPin, Users, Coffee, Wifi, School as Pool, ParkingMeter as Parking, ListRestart as Restaurant, Calendar } from 'lucide-react';
 import DatePicker from '../components/DatePicker';
 
 const HotelDetailPage: React.FC = () => {
