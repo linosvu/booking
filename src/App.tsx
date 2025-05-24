@@ -8,6 +8,8 @@ import RegisterPage from './pages/RegisterPage';
 import HotelsPage from './pages/HotelsPage';
 import AboutPage from './pages/AboutPage';
 import ContactPage from './pages/ContactPage';
+import AdminDashboard from './pages/admin/AdminDashboard';
+import HostDashboard from './pages/host/HostDashboard';
 import Footer from './components/Footer';
 
 function App() {
@@ -24,6 +26,8 @@ function App() {
               <Route path="/hotels" element={<HotelsPage />} />
               <Route path="/about" element={<AboutPage />} />
               <Route path="/contact" element={<ContactPage />} />
+              <Route path="/admin" element={<AdminDashboard />} />
+              <Route path="/host" element={<HostDashboard />} />
             </Routes>
           </main>
           <Footer />
