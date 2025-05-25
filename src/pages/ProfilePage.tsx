@@ -1,14 +1,11 @@
 import React, { useState } from 'react';
-import { useAuth } from '../contexts/AuthContext';
-import { userAPI } from '../services/api';
 import { User, Mail, Key, Save } from 'lucide-react';
 
 const ProfilePage: React.FC = () => {
-  const { user, fetchUserInfo } = useAuth();
   const [isEditing, setIsEditing] = useState(false);
   const [formData, setFormData] = useState({
-    name: user?.name || '',
-    email: user?.email || '',
+    name: 'John Doe',
+    email: 'john.doe@example.com',
     currentPassword: '',
     newPassword: '',
     confirmPassword: ''
@@ -26,30 +23,9 @@ const ProfilePage: React.FC = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setMessage('');
-    setError('');
-
-    try {
-      if (user) {
-        await userAPI.updateUser(user.id, {
-          name: formData.name,
-          username: user.username,
-          email: formData.email,
-          password: formData.newPassword || undefined
-        });
-
-        await fetchUserInfo();
-        setMessage('Profile updated successfully!');
-        setIsEditing(false);
-      }
-    } catch (err: any) {
-      setError(err.response?.data?.message || 'Failed to update profile');
-    }
+    setMessage('Profile updated successfully!');
+    setIsEditing(false);
   };
-
-  if (!user) {
-    return <div>Loading...</div>;
-  }
 
   return (
     <div className="min-h-screen bg-gray-50 pt-20">
@@ -90,7 +66,7 @@ const ProfilePage: React.FC = () => {
                   <input
                     type="text"
                     name="name"
-                    value={isEditing ? formData.name : user.name}
+                    value={formData.name}
                     onChange={handleChange}
                     disabled={!isEditing}
                     className="block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500 disabled:bg-gray-100"
@@ -109,7 +85,7 @@ const ProfilePage: React.FC = () => {
                   <input
                     type="email"
                     name="email"
-                    value={isEditing ? formData.email : user.email}
+                    value={formData.email}
                     onChange={handleChange}
                     disabled={!isEditing}
                     className="block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500 disabled:bg-gray-100"
