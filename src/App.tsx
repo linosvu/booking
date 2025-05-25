@@ -12,6 +12,8 @@ import ContactPage from './pages/ContactPage';
 import AdminDashboard from './pages/admin/AdminDashboard';
 import HostDashboard from './pages/host/HostDashboard';
 import ProfilePage from './pages/ProfilePage';
+import BookingHistoryPage from './pages/BookingHistoryPage';
+import BookingDetailPage from './pages/BookingDetailPage';
 import Footer from './components/Footer';
 
 function App() {
@@ -32,6 +34,8 @@ function App() {
               <Route path="/admin" element={<AdminDashboard />} />
               <Route path="/host" element={<HostDashboard />} />
               <Route path="/profile" element={<ProfilePage />} />
+              <Route path="/bookings" element={<BookingHistoryPage />} />
+              <Route path="/bookings/:id" element={<BookingDetailPage />} />
             </Routes>
           </main>
           <Footer />
