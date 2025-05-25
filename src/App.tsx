@@ -11,6 +11,7 @@ import AboutPage from './pages/AboutPage';
 import ContactPage from './pages/ContactPage';
 import AdminDashboard from './pages/admin/AdminDashboard';
 import HostDashboard from './pages/host/HostDashboard';
+import ProfilePage from './pages/ProfilePage';
 import Footer from './components/Footer';
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
               <Route path="/contact" element={<ContactPage />} />
               <Route path="/admin" element={<AdminDashboard />} />
               <Route path="/host" element={<HostDashboard />} />
+              <Route path="/profile" element={<ProfilePage />} />
             </Routes>
           </main>
           <Footer />
